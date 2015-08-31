@@ -159,6 +159,10 @@ public class BasicStats extends AbstractQCModule {
 				"Total Sequences",
 				"Sequences flagged as poor quality",
 				"Sequence length",
+				"%A",
+				"%C",
+				"%G",
+				"%T",
 				"%GC",
 		};		
 		
@@ -189,8 +193,11 @@ public class BasicStats extends AbstractQCModule {
 							return minLength+"-"+maxLength;
 						}
 						
-						
-					case 6 : 
+					case 6 : return ""+((aCount*100)/(aCount+tCount+gCount+cCount));
+					case 7 : return ""+((cCount*100)/(aCount+tCount+gCount+cCount));
+					case 8 : return ""+((gCount*100)/(aCount+tCount+gCount+cCount));
+					case 9 : return ""+((tCount*100)/(aCount+tCount+gCount+cCount));
+					case 10 : 
 						if (aCount+tCount+gCount+cCount > 0) {
 							return ""+(((gCount+cCount)*100)/(aCount+tCount+gCount+cCount));
 						}
